@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head profile="http://www.w3.org/2005/10/profile">
+  <title>Fitbit API JavaScript</title>
+  <link rel="icon" type="image/png" href="http://example.com/myicon.png">
+</head>
+
+<body>
+  <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <script src="c3.min.js"></script>
+  <link href="c3.css" rel="stylesheet">
+  <a href="https://www.fitbit.com/oauth2/authorize?response_type=token&client_id=22BD46&redirect_uri=http%3A%2F%2F127.0.0.1%3A8080%2F&scope=activity%20heartrate%20location%20nutrition%20profile%20settings%20sleep%20social%20weight&expires_in=604800">
+    Login to Fitbit
+  </a>
+  <div>
+    <input type="text" id="day" placeholder="년-월-일">
+    <button id="input_date">날짜변경</button>
+    <input type="text" id="start_time" placeholder="시:분">
+    <input type="text" id="end_time" placeholder="시:분">
+    <button id="input_time">시간변경</button>
+  </div>
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-app.js"></script>
+
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+  <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-analytics.js"></script>
+  <script src="https://cdn.firebase.com/js/client/2.4.2/firebase.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-database.js"></script>
+  <script>
+    var firebaseConfig = {
+      apiKey: "AIzaSyDFi5s0pIIpZPnVcs-S-wcjXkBQw82Q1to",
+      authDomain: "testapp-7260f.firebaseapp.com",
+      databaseURL: "https://testapp-7260f.firebaseio.com",
+      projectId: "testapp-7260f",
+      storageBucket: "testapp-7260f.appspot.com",
+      messagingSenderId: "756509498495",
+      appId: "1:756509498495:web:3f7ba28d7e373fb913734a",
+      measurementId: "G-2EX17VXKDY"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+  </script>
+
+  <script src="activity.js"></script>
+  <!-- <script src="heartrate.js"></script> -->
+  <h3>활동</h3>
+  <div id="activities"></div>
+  <h3>심박수</h3>
+  <div id="chart"></div>
+  <h3>걸음수</h3>
+  <div id="chart1"></div>
+
+</body>
+
+</html>
